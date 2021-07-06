@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG TEST 03 - animate</title>
+
+  <style>
+
+    .path {
+      opacity: 0;
+      animation: dropIn 4s ease forwards;
+      animation-delay: calc(var(--order) * 200ms);
+    }
+
+    @keyframes dropIn {
+      20% {
+        opacity: 0;
+        transform: translateY(-20%);
+      }
+
+      40%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <svg width="9cm" height="6cm" viewBox="0 0 900 600">
+
+    <!-- draw beautiful blue pebble shape -->
+    <path 
+      class="path" style="--order: 1" id="path1"
+      d="M400,300 Q400,200 500,200 Q600,200 650,250 Q700,300 650,400 Q600,500 500,450 L500,450 Q400,400 400,300"
+      fill="blue" stroke-width="5"/>
+
+  </svg>
+
+  <svg width="9cm" height="6cm" viewBox="0 0 900 600">
+
+    <!-- draw beautiful blue pebble shape -->
+    <path 
+      class="path" style="--order: 2"
+      d="M 150 300 Q 200 150 350 100 Q 500 50 650 200 Q 750 300 650 450 Q 550 600 400 550 Q 100 450 150 300 "
+      fill="blue" stroke-width="5"/>
+
+  </svg>
+
+  <svg width="9cm" height="6cm" viewBox="0 0 900 600">
+
+    <!-- draw beautiful blue pebble shape -->
+    <path 
+      class="path" style="--order: 3"
+      d="M400,300 Q400,200 500,200 Q600,200 650,250 Q700,300 650,400 Q600,500 500,450 L500,450 Q400,400 400,300"
+      fill="blue" stroke-width="5"/>
+
+  </svg>
+
+  <script>
+
+    const path1 = document.getElementById('path1')
+
+    newPathD = "M 150 300 Q 200 50 350 150 Q 500 250 650 250 Q 750 250 700 350 Q 600 550 400 550 Q 100 550 150 300 "
+    path1.setAttribute('d', newPathD)
+
+  </script>
+
+</body>
+</html>
